@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_courses"
+        android:icon="@drawable/courses"
+        android:title="@string/title_courses" />
+
+    <item
+        android:id="@+id/navigation_notes"
+        android:icon="@drawable/add_note"
+        android:title="@string/title_notes" />
+
+    <item
+        android:id="@+id/navigation_camera"
+        android:icon="@drawable/camera_note"
+        android:title="@string/title_camera" />
+
+</menu>
