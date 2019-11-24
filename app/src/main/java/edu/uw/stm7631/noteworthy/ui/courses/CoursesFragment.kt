@@ -4,28 +4,21 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.LinearLayoutManager
+import edu.uw.stm7631.noteworthy.CourseContent
+import edu.uw.stm7631.noteworthy.RecyclerViewAdapter
+import androidx.recyclerview.widget.RecyclerView
 import edu.uw.stm7631.noteworthy.R
+
 
 class CoursesFragment : Fragment() {
 
-    private lateinit var coursesViewModel: CoursesViewModel
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        coursesViewModel =
-            ViewModelProviders.of(this).get(CoursesViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_notes, container, false)
-        val textView: TextView = root.findViewById(R.id.text_notes)
-        coursesViewModel.text.observe(this, Observer {
-            textView.text = it
-        })
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        val root = inflater.inflate(R.layout.fragment_courses, container, false)
+        val recyclerView = root.findViewById(R.id.course_recycle) as RecyclerView
+        recyclerView.adapter = RecyclerViewAdapter(CourseContent.ITEMS)
+        recyclerView.layoutManager = LinearLayoutManager(activity)
         return root
     }
 }
