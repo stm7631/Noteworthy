@@ -10,17 +10,17 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import edu.uw.stm7631.noteworthy.CourseContent
 import edu.uw.stm7631.noteworthy.RecyclerViewAdapter
 import androidx.recyclerview.widget.RecyclerView
+import edu.uw.stm7631.noteworthy.NotesRecyclerViewAdapter
 import edu.uw.stm7631.noteworthy.R
 
 
-class CoursesFragment : Fragment() {
+class NoteListFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-//        val root = inflater.inflate(R.layout.fragment_courses, container, false)
-//        val recyclerView = root.findViewById(R.id.course_recycle) as RecyclerView
-//        recyclerView.adapter = RecyclerViewAdapter(CourseContent.ITEMS, getActivity() as Context)
-//        recyclerView.layoutManager = LinearLayoutManager(activity)
-        val root = inflater.inflate(R.layout.get_started, container, false)
+        val root = inflater.inflate(R.layout.fragment_notelist, container, false)
+        val recyclerView = root.findViewById(R.id.course_recycle) as RecyclerView
+        recyclerView.adapter = NotesRecyclerViewAdapter(CourseContent.NOTES, getActivity() as Context)
+        recyclerView.layoutManager = LinearLayoutManager(activity)
         return root
     }
 }
