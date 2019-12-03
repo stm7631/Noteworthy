@@ -1,5 +1,6 @@
 package edu.uw.stm7631.noteworthy.ui.courses
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -17,7 +18,7 @@ class CoursesFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val root = inflater.inflate(R.layout.fragment_courses, container, false)
         val recyclerView = root.findViewById(R.id.course_recycle) as RecyclerView
-        recyclerView.adapter = RecyclerViewAdapter(CourseContent.ITEMS)
+        recyclerView.adapter = RecyclerViewAdapter(CourseContent.ITEMS, getActivity() as Context)
         recyclerView.layoutManager = LinearLayoutManager(activity)
         return root
     }

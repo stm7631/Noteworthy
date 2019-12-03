@@ -1,26 +1,44 @@
 package edu.uw.stm7631.noteworthy
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
+import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
+import edu.uw.stm7631.noteworthy.ui.courses.CoursesFragment
+import edu.uw.stm7631.noteworthy.ui.notes.NotesFragment
 import kotlinx.android.synthetic.main.course_card.view.*
 
-// Recycler to bind SMS data to view
-class RecyclerViewAdapter(private val values: List<CourseContent.CourseItem>)
+
+// Recycler to bind SMS data to views
+class RecyclerViewAdapter(private val values: List<CourseContent.CourseItem>, private val context: Context)
     : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.course_card, parent, false)
+        view.setOnClickListener {
+            //            context.supportFragmentManager
+//                .beginTransaction()
+//                .add(R.id.nav_host_fragment, NotesFragment())
+//                .commit()
+//        }
+            (context as FragmentActivity).supportFragmentManager
+                .beginTransaction()
+                .remove(CoursesFragment())
+                .replace(R.id.nav_host_fragment, NotesFragment())
+                .commit()
+        }
         return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = values[position]
         holder.course.text = item.course
-        holder.section.text = item.section
+        holder.instructor.text = item.instructor
         holder.date.text = item.date
 
         with(holder.itemView) {
@@ -32,7 +50,7 @@ class RecyclerViewAdapter(private val values: List<CourseContent.CourseItem>)
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val course: TextView = view.course_name
-        val section: TextView = view.course_section
+        val instructor: TextView = view.course_instructor
         val date: TextView = view.course_date
     }
 }
