@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "204449913763",
+    "firebase_url": "https://noteworthy-64ff8.firebaseio.com",
+    "project_id": "noteworthy-64ff8",
+    "storage_bucket": "noteworthy-64ff8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:204449913763:android:55a5583e57a8dadfaf9816",
+        "android_client_info": {
+          "package_name": "edu.uw.stm7631.noteworthy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "204449913763-ltgq922olk83hj4oq61o55fvrng41bt6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.uw.stm7631.noteworthy",
+            "certificate_hash": "35a85a7ea0cba2adeb8a00deae13458d50a4d829"
+          }
+        },
+        {
+          "client_id": "204449913763-61bdpn7n3e352kt3dgisk992e4qd1vp3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-TuXPQq4Alp-8MI_BP4yaHvF8fjgcVvk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "204449913763-61bdpn7n3e352kt3dgisk992e4qd1vp3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
