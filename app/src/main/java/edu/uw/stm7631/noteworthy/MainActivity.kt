@@ -7,6 +7,9 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import android.view.Menu
+import android.view.MenuItem
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
 
@@ -26,4 +29,43 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }
-}
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        // Inflate the menu to use in the action bar
+        val inflater = menuInflater
+        inflater.inflate(R.menu.example_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        when (item.itemId) {
+            R.id.undo -> {
+                item.title = "Undo"
+                true
+            }
+            R.id.redo -> {
+                item.title = "Redo"
+                true
+            }
+            R.id.find -> {
+                item.title = "Find"
+                true
+            }
+            R.id.settings -> {
+                item.title = "Settings"
+
+
+            }
+            R.id.share -> {
+                item.title = "Share"
+        }}
+                return super.onOptionsItemSelected(item)
+            }
+        }
+
+
+
+
+
+
