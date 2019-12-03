@@ -8,6 +8,6 @@
     android:layout_marginLeft="8dp"
     android:layout_marginRight="8dp"
     app:layoutManager="LinearLayoutManager"
-    tools:listitem="@layout/course_card"
+    tools:listitem="@layout/note_card"
     android:layout_marginBottom="?attr/actionBarSize"
-    android:background="#FFFFFF"/>
+    android:background="#FFFFFF" />
