@@ -42,13 +42,13 @@ class MainActivity : AppCompatActivity() {
                 for (doc in documents) {
                     CourseContent.ITEMS.add(CourseContent.CourseItem(doc.data["first"].toString(), "hi", "hi"))
                 }
-                course_recycle.adapter = RecyclerViewAdapter(CourseContent.ITEMS)
-                course_recycle.layoutManager = LinearLayoutManager(this)
+//                course_recycle.adapter = RecyclerViewAdapter(CourseContent.ITEMS, this)
+//                course_recycle.layoutManager = LinearLayoutManager(this)
             }
             .addOnFailureListener { exception ->
                 CourseContent.ITEMS.add(CourseContent.CourseItem("failed", "hi", "hi"))
-                course_recycle.adapter = RecyclerViewAdapter(CourseContent.ITEMS)
-                course_recycle.layoutManager = LinearLayoutManager(this)
+//                course_recycle.adapter = RecyclerViewAdapter(CourseContent.ITEMS, this)
+//                course_recycle.layoutManager = LinearLayoutManager(this)
             }
 
     }
