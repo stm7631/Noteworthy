@@ -1,13 +1,35 @@
-<androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/course_recycle"
-    android:name="edu.uw.stm7631.news.ItemListFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="8dp"
-    android:layout_marginRight="8dp"
-    app:layoutManager="LinearLayoutManager"
-    tools:listitem="@layout/course_card"
-    android:layout_marginBottom="?attr/actionBarSize"
-    android:background="#FFFFFF"/>
+    android:layout_marginBottom="?attr/actionBarSize" >
+
+    <androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/course_recycle"
+        android:name="edu.uw.stm7631.news.ItemListFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        app:layoutManager="LinearLayoutManager"
+        tools:listitem="@layout/course_card"
+        android:background="#FFFFFF">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:backgroundTint="@color/colorPrimary"
+        android:layout_margin="16dp"
+        app:borderWidth="0dp"
+        app:srcCompat="@drawable/add_course_white" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

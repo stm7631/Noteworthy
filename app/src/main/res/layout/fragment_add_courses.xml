@@ -1,0 +1,13 @@
+<androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/course_recycle"
+    android:name="edu.uw.stm7631.news.ItemListFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    app:layoutManager="LinearLayoutManager"
+    tools:listitem="@layout/course_add_card"
+    android:layout_marginBottom="?attr/actionBarSize"
+    android:background="#FFFFFF"/>
