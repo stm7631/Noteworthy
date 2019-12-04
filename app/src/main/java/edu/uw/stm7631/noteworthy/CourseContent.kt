@@ -28,6 +28,10 @@ object CourseContent {
         NoteItem("NOTE 900", "Student H", "Autumn 2019")
     )
 
+    data class User(val name: String, val email: String) {
+        override fun toString(): String = email
+    }
+
     // SMS item with contact name, message content, and date
     data class CourseItem(val course: String, val instructor: String, val date: String) {
         override fun toString(): String = course
