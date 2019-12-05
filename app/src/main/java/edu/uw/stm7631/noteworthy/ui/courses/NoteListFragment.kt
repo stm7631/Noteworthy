@@ -16,13 +16,21 @@ import edu.uw.stm7631.noteworthy.CourseContent.NOTES
 import edu.uw.stm7631.noteworthy.NotesRecyclerViewAdapter
 import edu.uw.stm7631.noteworthy.R
 import kotlinx.android.synthetic.main.note_card.view.*
+import edu.uw.stm7631.noteworthy.ui.notes.NotesFragment
 
 
 class NoteListFragment : Fragment() {
 
+    private var paramData: String? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        arguments?.let {
+            paramData = it.getString("course")
+        }
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-
-
 
         val root = inflater.inflate(R.layout.fragment_notelist, container, false)
         val recyclerView = root.findViewById(R.id.course_recycle) as RecyclerView
@@ -42,5 +50,15 @@ class NoteListFragment : Fragment() {
         recyclerView.adapter = NotesRecyclerViewAdapter(CourseContent.NOTES, getActivity() as Context)
         recyclerView.layoutManager = LinearLayoutManager(activity)
         return root
+    }
+
+    companion object {
+        @JvmStatic
+        fun newInstance(paramData: String) =
+            NoteListFragment().apply {
+                arguments = Bundle().apply {
+                    putString("course", paramData)
+                }
+            }
     }
 }
