@@ -1,17 +1,16 @@
 package edu.uw.stm7631.noteworthy.ui.courses
 
 import android.content.Context
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import edu.uw.stm7631.noteworthy.CourseContent
-import edu.uw.stm7631.noteworthy.RecyclerViewAdapter
 import androidx.recyclerview.widget.RecyclerView
-import edu.uw.stm7631.noteworthy.AddRecyclerViewAdapter
-import edu.uw.stm7631.noteworthy.R
+import edu.uw.stm7631.noteworthy.*
+import kotlinx.android.synthetic.main.course_add_card.*
 
 
 class CoursesAddFragment : Fragment() {

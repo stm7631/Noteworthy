@@ -1,29 +1,27 @@
 package edu.uw.stm7631.noteworthy
 
 import android.content.Context
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
+import edu.uw.stm7631.noteworthy.ui.courses.CoursesAddFragment
 import edu.uw.stm7631.noteworthy.ui.courses.CoursesFragment
-import kotlinx.android.synthetic.main.course_card.view.*
+import kotlinx.android.synthetic.main.course_add_card.view.*
 
-
-// Recycler to bind SMS data to views
 class AddRecyclerViewAdapter(private val values: List<CourseContent.CourseItem>, private val context: Context)
     : RecyclerView.Adapter<AddRecyclerViewAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.course_card, parent, false)
-        view.setOnClickListener {
-            (context as FragmentActivity).supportFragmentManager
-                .beginTransaction()
-                .replace(R.id.nav_host_fragment, CoursesFragment())
-                .commit()
+            .inflate(R.layout.course_add_card, parent, false)
+        view.add_button.setOnClickListener {
+            view.add_button.setImageResource(R.drawable.add_course_selected)
         }
+
         return ViewHolder(view)
     }
 

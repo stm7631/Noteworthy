@@ -10,4 +10,4 @@
     app:layoutManager="LinearLayoutManager"
     tools:listitem="@layout/course_add_card"
     android:layout_marginBottom="?attr/actionBarSize"
-    android:background="#FFFFFF"/>
+    android:background="#FFFFFF" />

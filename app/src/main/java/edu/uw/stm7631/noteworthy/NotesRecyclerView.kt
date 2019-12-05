@@ -10,8 +10,6 @@ import androidx.recyclerview.widget.RecyclerView
 import edu.uw.stm7631.noteworthy.ui.courses.NoteListFragment
 import kotlinx.android.synthetic.main.note_card.view.*
 
-
-// Recycler to bind SMS data to views
 class NotesRecyclerViewAdapter(private val values: List<CourseContent.NoteItem>, private val context: Context)
     : RecyclerView.Adapter<NotesRecyclerViewAdapter.ViewHolder>() {
 
@@ -21,7 +19,8 @@ class NotesRecyclerViewAdapter(private val values: List<CourseContent.NoteItem>,
 //        view.setOnClickListener {
 //            (context as FragmentActivity).supportFragmentManager
 //                .beginTransaction()
-//                .replace(R.id.nav_host_fragment, NoteListFragment())
+//                .add(R.id.nav_host_fragment, NoteListFragment())
+//                .addToBackStack(null)
 //                .commit()
 //        }
         return ViewHolder(view)

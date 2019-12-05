@@ -7,11 +7,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
+import edu.uw.stm7631.noteworthy.ui.courses.CoursesFragment
 import edu.uw.stm7631.noteworthy.ui.courses.NoteListFragment
 import kotlinx.android.synthetic.main.course_card.view.*
 
-
-// Recycler to bind SMS data to views
 class RecyclerViewAdapter(private val values: List<CourseContent.CourseItem>, private val context: Context)
     : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
 
@@ -21,7 +20,9 @@ class RecyclerViewAdapter(private val values: List<CourseContent.CourseItem>, pr
         view.setOnClickListener {
             (context as FragmentActivity).supportFragmentManager
                 .beginTransaction()
-                .replace(R.id.nav_host_fragment, NoteListFragment())
+                .remove(CoursesFragment())
+                .add(R.id.nav_host_fragment, NoteListFragment())
+                .addToBackStack(null)
                 .commit()
         }
         return ViewHolder(view)
