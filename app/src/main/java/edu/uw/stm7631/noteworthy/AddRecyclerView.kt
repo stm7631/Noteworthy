@@ -37,18 +37,18 @@ class AddRecyclerViewAdapter(private val values: List<CourseContent.CourseItem>,
                         Toast.makeText(view.context, user["email"].toString(), Toast.LENGTH_LONG).show()
                         db.collection("users").document(user.id).update("classes", FieldValue.arrayUnion(docRef))
                             .addOnSuccessListener {
-                                Toast.makeText(view.context, "success!", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(view.context, "Success!", Toast.LENGTH_SHORT).show()
                                 docRef.get().addOnSuccessListener {
                                     MYCOURSES.add(CourseContent.CourseItem(it.getString("code")!!, it.getString("name")!!, it.getString("date")!!))
                                 }
                             }
                             .addOnFailureListener {
-                                Toast.makeText(view.context, "failed :(", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(view.context, "Add failed.", Toast.LENGTH_SHORT).show()
                             }
                     }
                 }
                 .addOnFailureListener { exception ->
-                    Toast.makeText(view.context, "failed", Toast.LENGTH_LONG).show()
+                    Toast.makeText(view.context, "Add failed.", Toast.LENGTH_LONG).show()
                 }
 
 

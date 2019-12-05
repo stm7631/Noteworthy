@@ -66,6 +66,9 @@ class SwitchableActivity : AppCompatActivity() {
                         CourseContent.MYCOURSES.add(CourseContent.CourseItem(it["code"].toString(), it["name"].toString(), it["date"].toString()))
                         course_recycle.adapter = RecyclerViewAdapter(CourseContent.MYCOURSES, this)
                         course_recycle.layoutManager = LinearLayoutManager(this)
+                        if (CourseContent.MYCOURSES.isEmpty()) {
+                            Toast.makeText(this, "Add some courses!", Toast.LENGTH_LONG).show()
+                        }
                     }
                 }
             }
