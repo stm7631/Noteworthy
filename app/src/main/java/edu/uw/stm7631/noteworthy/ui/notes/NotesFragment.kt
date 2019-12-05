@@ -1,6 +1,5 @@
 package edu.uw.stm7631.noteworthy.ui.notes
 import android.os.Bundle
-import java.time.LocalDateTime
 import android.view.Menu
 import android.view.MenuItem
 import android.view.*
@@ -10,8 +9,6 @@ import android.widget.Toast
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
-import java.time.format.DateTimeFormatter
-import java.time.format.FormatStyle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import edu.uw.stm7631.noteworthy.R
@@ -34,10 +31,7 @@ class NotesFragment : Fragment() {
 
 
     fun current_date(): String {
-        val current = LocalDateTime.now()
-        val formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM)
-        val formatted = current.format(formatter)
-        return "$formatted"
+        return Calendar.getInstance().time.toString()
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
