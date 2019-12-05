@@ -10,6 +10,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import android.view.Menu
+import java.util.Calendar
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -38,7 +39,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+
+override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.welcome)
         var db = FirebaseFirestore.getInstance()
@@ -63,10 +65,9 @@ class MainActivity : AppCompatActivity() {
                                 .addOnFailureListener {
                                     Toast.makeText(this, "signup failed :(", Toast.LENGTH_SHORT).show()
                                 }
-
                         } else {
                             //Registration error
-                            Toast.makeText(this, "signup failed", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, getResources().getString(R.string.up_fail), Toast.LENGTH_LONG).show()
                         }
                     }
             }
@@ -76,17 +77,57 @@ class MainActivity : AppCompatActivity() {
             signinButton.setOnClickListener {
                 auth.signInWithEmailAndPassword(email.text.toString(), password.text.toString()).addOnCompleteListener {
                     if (it.isSuccessful) {
+                        Toast.makeText(this, getResources().getString(R.string.in_success), Toast.LENGTH_SHORT).show()
                         val intent = Intent(this, SwitchableActivity::class.java)
                         startActivity(intent)
                     } else {
                         //Registration error
-                        Toast.makeText(this, "signin failed", Toast.LENGTH_SHORT)
+                        Toast.makeText(this, getResources().getString(R.string.in_fail), Toast.LENGTH_LONG).show()
                     }
                 }
             }
         }
     }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        // Inflate the menu to use in the action bar
+        val inflater = menuInflater
+        inflater.inflate(R.menu.example_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        when (item.itemId) {
+            R.id.undo -> {
+                item.title = "Undo"
+                true
+            }
+            R.id.redo -> {
+                item.title = "Redo"
+                true
+            }
+            R.id.find -> {
+                item.title = "Find"
+                true
+            }
+            R.id.settings -> {
+                item.title = "Settings"
+
+
+            }
+            R.id.share -> {
+                item.title = "Share"
+            }}
+        return super.onOptionsItemSelected(item)
+    }
 }
+
+
+
+
 
 
 

@@ -28,6 +28,7 @@ android:orientation="vertical">
             android:layout_height="wrap_content"
             android:layout_toEndOf="@id/course_image"
             android:text="COURSE NAME"
+            android:layout_marginEnd="70dp"
             android:textSize="30sp"
             android:paddingTop="8dp"
             android:includeFontPadding="false"
@@ -38,8 +39,9 @@ android:orientation="vertical">
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/course_name"
+            android:layout_marginEnd="70dp"
             android:text="SECTION"
-            android:textSize="24sp"
+            android:textSize="18sp"
             android:includeFontPadding="false"
             android:layout_toEndOf="@id/course_image" />
 
@@ -49,6 +51,7 @@ android:orientation="vertical">
             android:layout_height="wrap_content"
             android:layout_below="@id/course_instructor"
             android:text="QUARTER"
+            android:textSize="12sp"
             android:includeFontPadding="false"
             android:layout_toEndOf="@id/course_image" />
 
