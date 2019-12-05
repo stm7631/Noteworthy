@@ -34,7 +34,6 @@ class AddRecyclerViewAdapter(private val values: List<CourseContent.CourseItem>,
             users.get()
                 .addOnSuccessListener { users ->
                     for (user in users) {
-                        Toast.makeText(view.context, user["email"].toString(), Toast.LENGTH_LONG).show()
                         db.collection("users").document(user.id).update("classes", FieldValue.arrayUnion(docRef))
                             .addOnSuccessListener {
                                 Toast.makeText(view.context, "success!", Toast.LENGTH_SHORT).show()

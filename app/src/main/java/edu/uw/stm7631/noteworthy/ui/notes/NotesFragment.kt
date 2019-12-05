@@ -11,9 +11,12 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.google.firebase.firestore.DocumentReference
+import com.google.firebase.firestore.FirebaseFirestore
 import edu.uw.stm7631.noteworthy.R
 import kotlinx.android.synthetic.main.fragment_courses.*
 import kotlinx.android.synthetic.main.fragment_notes.*
+import java.util.ArrayList
 
 
 class NotesFragment : Fragment() {
@@ -41,6 +44,12 @@ class NotesFragment : Fragment() {
                 this.context, "Note saved!",
                 Toast.LENGTH_LONG
             ).show()
+            var db = FirebaseFirestore.getInstance()
+            db.collection("notes").add(hashMapOf(
+                "class" to db.document("/classes/INFO200"),
+                "text" to text_content.text.toString(),
+                "title" to text_heading.text.toString()
+            ))
         }
 
         text_content.apply {

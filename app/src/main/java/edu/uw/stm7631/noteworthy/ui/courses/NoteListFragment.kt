@@ -31,15 +31,15 @@ class NoteListFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-
+        NOTES.clear()
         val root = inflater.inflate(R.layout.fragment_notelist, container, false)
         val recyclerView = root.findViewById(R.id.course_recycle) as RecyclerView
         var db = FirebaseFirestore.getInstance()
-        db.collection("notes").whereEqualTo("class", db.collection("classes").document("CSE142")).get()
+        db.collection("notes").whereEqualTo("class", db.collection("classes").document(paramData!!.replace("\\s".toRegex(), ""))).get()
             .addOnSuccessListener { notes ->
                 for (note in notes) {
-                    root.note_name.setText(note["title"].toString())
-                    NOTES.add(CourseContent.NoteItem(note["title"].toString(), note["title"].toString(), note["title"].toString()))
+//                    root.note_name.setText(note["title"].toString())
+                    NOTES.add(CourseContent.NoteItem(note["title"].toString(), note["text"].toString(), note["title"].toString()))
                 }
                 recyclerView.adapter = NotesRecyclerViewAdapter(CourseContent.NOTES, getActivity() as Context)
                 recyclerView.layoutManager = LinearLayoutManager(activity)
