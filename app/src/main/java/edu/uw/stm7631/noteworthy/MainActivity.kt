@@ -2,6 +2,7 @@ package edu.uw.stm7631.noteworthy
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.LayoutInflater
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -16,6 +17,9 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_courses.*
+import kotlinx.android.synthetic.main.signin.*
+import kotlinx.android.synthetic.main.signup.*
+import kotlinx.android.synthetic.main.welcome.*
 
 private lateinit var auth: FirebaseAuth
 
@@ -25,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         // Check if user is signed in (non-null) and update UI accordingly.
         val currentUser = auth.currentUser
-        if (currentUser == null) {
+        if (currentUser != null) {
             val intent = Intent(this, SwitchableActivity::class.java)
             startActivity(intent)
         }
@@ -33,9 +37,40 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //setContentView(R.layout.activity_main)
-
-
+        setContentView(R.layout.welcome)
+        signup.setOnClickListener {
+            setContentView(R.layout.signup)
+            signupButton.setOnClickListener {
+                auth.createUserWithEmailAndPassword(newemail.text.toString(), newpassword.text.toString())
+                    .addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            //Registration OK
+                            val firebaseUser = auth.currentUser
+                            Toast.makeText(this, "signup successful!", Toast.LENGTH_SHORT).show()
+                            auth.signInWithEmailAndPassword(newemail.text.toString(), newpassword.text.toString())
+                            val intent = Intent(this, SwitchableActivity::class.java)
+                            startActivity(intent)
+                        } else {
+                            //Registration error
+                            Toast.makeText(this, "signup failed", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+            }
+        }
+        login.setOnClickListener {
+            setContentView(R.layout.signin)
+            signinButton.setOnClickListener {
+                auth.signInWithEmailAndPassword(email.text.toString(), password.text.toString()).addOnCompleteListener {
+                    if (it.isSuccessful) {
+                        val intent = Intent(this, SwitchableActivity::class.java)
+                        startActivity(intent)
+                    } else {
+                        //Registration error
+                        Toast.makeText(this, "signin failed", Toast.LENGTH_SHORT)
+                    }
+                }
+            }
+        }
     }
 }
 
