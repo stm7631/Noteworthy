@@ -20,6 +20,7 @@ import kotlinx.android.synthetic.main.get_started.*
 class CoursesFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+
         var root = inflater.inflate(R.layout.fragment_courses, container, false)
         val context = (getActivity() as Context)
         val recyclerView = root.findViewById(R.id.course_recycle) as RecyclerView

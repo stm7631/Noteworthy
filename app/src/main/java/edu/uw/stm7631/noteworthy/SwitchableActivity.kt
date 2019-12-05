@@ -60,6 +60,7 @@ class SwitchableActivity : AppCompatActivity() {
         val user = db.collection("users").document(CourseContent.auth.currentUser?.email!!)
         user.get()
             .addOnSuccessListener { user ->
+                CourseContent.MYCOURSES.clear()
                 val courses = user.data?.getValue("classes") as ArrayList<DocumentReference>
                 for (cor in courses) {
                     cor.get().addOnSuccessListener {
