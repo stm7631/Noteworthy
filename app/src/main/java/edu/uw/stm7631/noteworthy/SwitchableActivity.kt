@@ -9,10 +9,14 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.synthetic.main.fragment_courses.*
 import java.util.*
+import kotlin.collections.ArrayList
 
 class SwitchableActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,22 +37,21 @@ class SwitchableActivity : AppCompatActivity() {
 
 
 
-        Toast.makeText(this, Calendar.getInstance().time.toString(), Toast.LENGTH_LONG).show()
         var db = FirebaseFirestore.getInstance()
-
-        val docRef = db.collection("users")
-        docRef.get()
-            .addOnSuccessListener { documents ->
-                for (doc in documents) {
-                    CourseContent.ITEMS.add(CourseContent.CourseItem(doc.data["first"].toString(), "hi", "hi"))
+        val user = db.collection("users").document(CourseContent.auth.currentUser?.email!!)
+        user.get()
+            .addOnSuccessListener { user ->
+                val courses = user.data?.getValue("classes") as ArrayList<DocumentReference>
+                for (cor in courses) {
+                    cor.get().addOnSuccessListener {
+                        CourseContent.MYCOURSES.add(CourseContent.CourseItem(it["code"].toString(), it["name"].toString(), it["date"].toString()))
+                        course_recycle.adapter = RecyclerViewAdapter(CourseContent.MYCOURSES, this)
+                        course_recycle.layoutManager = LinearLayoutManager(this)
+                    }
                 }
-//                course_recycle.adapter = RecyclerViewAdapter(CourseContent.ITEMS, this)
-//                course_recycle.layoutManager = LinearLayoutManager(this)
             }
             .addOnFailureListener { exception ->
                 CourseContent.ITEMS.add(CourseContent.CourseItem("failed", "hi", "hi"))
-//                course_recycle.adapter = RecyclerViewAdapter(CourseContent.ITEMS, this)
-//                course_recycle.layoutManager = LinearLayoutManager(this)
             }
 
     }

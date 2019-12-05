@@ -15,6 +15,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import edu.uw.stm7631.noteworthy.CourseContent.ITEMS
 import edu.uw.stm7631.noteworthy.CourseContent.auth
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_courses.*
@@ -48,7 +49,7 @@ class MainActivity : AppCompatActivity() {
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
                             //Registration OK
-                            db.collection("users").document(name.text.toString()).set(
+                            db.collection("users").document(newemail.text.toString()).set(
                                 hashMapOf(
                                     "name" to name.text.toString(),
                                     "email" to newemail.text.toString()

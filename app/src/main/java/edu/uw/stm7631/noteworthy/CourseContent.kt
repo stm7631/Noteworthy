@@ -8,15 +8,28 @@ object CourseContent {
 
     //dummy content
     val ITEMS: MutableList<CourseItem> = arrayListOf(
-        CourseItem("INFO 200", "Professor A", "Autumn 2019"),
-        CourseItem("INFO 300", "Professor B", "Autumn 2019"),
-        CourseItem("INFO 400", "Professor C", "Autumn 2019"),
-        CourseItem("INFO 500", "Professor D", "Autumn 2019"),
-        CourseItem("INFO 600", "Professor E", "Autumn 2019"),
-        CourseItem("INFO 700", "Professor F", "Autumn 2019"),
-        CourseItem("INFO 800", "Professor G", "Autumn 2019"),
-        CourseItem("INFO 900", "Professor H", "Autumn 2019")
+        CourseItem("INFO 101", "Social Networking Technologies", "Autumn 2019"),
+        CourseItem("INFO 102", "Gender and Information Technology", "Autumn 2019"),
+        CourseItem("INFO 180", "Introduction to Data Science", "Autumn 2019"),
+        CourseItem("INFO 200", "Intellectual Foundations of Informatics", "Autumn 2019"),
+        CourseItem("INFO 201", "Technical Foundations", "Autumn 2019"),
+        CourseItem("INFO 300", "Research Methods", "Autumn 2019"),
+        CourseItem("INFO 310", "Information Assurance and Cybersecurity", "Autumn 2019"),
+        CourseItem("INFO 314", "Computer Networks and Distributed Applications", "Autumn 2019"),
+        CourseItem("INFO 330", "Databases and Data Modeling", "Autumn 2019"),
+        CourseItem("INFO 340", "Client-Side Development", "Autumn 2019"),
+        CourseItem("INFO 350", "Information Ethics and Policy", "Autumn 2019"),
+        CourseItem("INFO 360", "Design Methods", "Autumn 2019"),
+        CourseItem("INFO 362", "Visual Information Design", "Autumn 2019"),
+        CourseItem("INFO 365", "Mobile Application Design", "Autumn 2019"),
+        CourseItem("INFO 370", "Core Methods in Data Science", "Autumn 2019"),
+        CourseItem("INFO 371", "Advanced Methods in Data Science", "Autumn 2019")
+    ,CourseItem("INFO 380", "Information Systems Analysis and Design", "Autumn 2019"),
+        CourseItem("INFO 441", "Server-Side Development", "Autumn 2019"),
+        CourseItem("INFO 448", "Mobile Development: Android", "Autumn 2019")
     )
+
+    val MYCOURSES: MutableList<CourseItem> = arrayListOf()
 
     //dummy content
     val NOTES: MutableList<NoteItem> = arrayListOf(
