@@ -54,7 +54,8 @@ override fun onCreate(savedInstanceState: Bundle?) {
                             db.collection("users").document(newemail.text.toString()).set(
                                 hashMapOf(
                                     "name" to name.text.toString(),
-                                    "email" to newemail.text.toString()
+                                    "email" to newemail.text.toString(),
+                                    "classes" to ArrayList<String>()
                                 ))
                                 .addOnSuccessListener {
                                     Toast.makeText(this, "signup successful!", Toast.LENGTH_SHORT).show()
