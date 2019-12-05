@@ -32,16 +32,7 @@ object CourseContent {
     val MYCOURSES: MutableList<CourseItem> = arrayListOf()
 
     //dummy content
-    val NOTES: MutableList<NoteItem> = arrayListOf(
-        NoteItem("NOTE 200", "Student A", "Autumn 2019"),
-        NoteItem("NOTE 300", "Student B", "Autumn 2019"),
-        NoteItem("NOTE 400", "Student C", "Autumn 2019"),
-        NoteItem("NOTE 500", "Student D", "Autumn 2019"),
-        NoteItem("NOTE 600", "Student E", "Autumn 2019"),
-        NoteItem("NOTE 700", "Student F", "Autumn 2019"),
-        NoteItem("NOTE 800", "Student G", "Autumn 2019"),
-        NoteItem("NOTE 900", "Student H", "Autumn 2019")
-    )
+    val NOTES: MutableList<NoteItem> = arrayListOf()
 
     data class User(val name: String, val email: String) {
         override fun toString(): String = email
