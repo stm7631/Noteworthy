@@ -9,12 +9,20 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import android.view.Menu
 import android.view.MenuItem
+
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.time.LocalDateTime
 import java.util.Calendar
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
+
+import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_courses.*
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -33,6 +41,25 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+
+        var db = FirebaseFirestore.getInstance()
+
+        val docRef = db.collection("users")
+        docRef.get()
+            .addOnSuccessListener { documents ->
+                for (doc in documents) {
+                    CourseContent.ITEMS.add(CourseContent.CourseItem(doc.data["first"].toString(), "hi", "hi"))
+                }
+                course_recycle.adapter = RecyclerViewAdapter(CourseContent.ITEMS)
+                course_recycle.layoutManager = LinearLayoutManager(this)
+            }
+            .addOnFailureListener { exception ->
+                CourseContent.ITEMS.add(CourseContent.CourseItem("failed", "hi", "hi"))
+                course_recycle.adapter = RecyclerViewAdapter(CourseContent.ITEMS)
+                course_recycle.layoutManager = LinearLayoutManager(this)
+            }
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
