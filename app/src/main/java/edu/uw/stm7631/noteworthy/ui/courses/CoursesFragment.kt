@@ -22,7 +22,7 @@ class CoursesFragment : Fragment() {
         val root = inflater.inflate(R.layout.fragment_courses, container, false)
         val recyclerView = root.findViewById(R.id.course_recycle) as RecyclerView
         val context = (getActivity() as Context)
-        recyclerView.adapter = RecyclerViewAdapter(CourseContent.ITEMS, context)
+        recyclerView.adapter = RecyclerViewAdapter(CourseContent.MYCOURSES, context)
         recyclerView.layoutManager = LinearLayoutManager(activity)
         return root
     }

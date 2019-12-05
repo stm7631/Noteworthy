@@ -16,13 +16,16 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import edu.uw.stm7631.noteworthy.CourseContent.ITEMS
+import edu.uw.stm7631.noteworthy.CourseContent.auth
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_courses.*
 import kotlinx.android.synthetic.main.signin.*
 import kotlinx.android.synthetic.main.signup.*
 import kotlinx.android.synthetic.main.welcome.*
+import java.util.*
 
-private lateinit var auth: FirebaseAuth
+
 
 class MainActivity : AppCompatActivity() {
     public override fun onStart() {
@@ -40,6 +43,7 @@ class MainActivity : AppCompatActivity() {
 override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.welcome)
+        var db = FirebaseFirestore.getInstance()
         signup.setOnClickListener {
             setContentView(R.layout.signup)
             signupButton.setOnClickListener {
@@ -47,11 +51,20 @@ override fun onCreate(savedInstanceState: Bundle?) {
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
                             //Registration OK
-                            val firebaseUser = auth.currentUser
-                            Toast.makeText(this, getResources().getString(R.string.up_success), Toast.LENGTH_SHORT).show()
-                            auth.signInWithEmailAndPassword(newemail.text.toString(), newpassword.text.toString())
-                            val intent = Intent(this, SwitchableActivity::class.java)
-                            startActivity(intent)
+                            db.collection("users").document(newemail.text.toString()).set(
+                                hashMapOf(
+                                    "name" to name.text.toString(),
+                                    "email" to newemail.text.toString()
+                                ))
+                                .addOnSuccessListener {
+                                    Toast.makeText(this, "signup successful!", Toast.LENGTH_SHORT).show()
+                                    auth.signInWithEmailAndPassword(newemail.text.toString(), newpassword.text.toString())
+                                    val intent = Intent(this, SwitchableActivity::class.java)
+                                    startActivity(intent)
+                                }
+                                .addOnFailureListener {
+                                    Toast.makeText(this, "signup failed :(", Toast.LENGTH_SHORT).show()
+                                }
                         } else {
                             //Registration error
                             Toast.makeText(this, getResources().getString(R.string.up_fail), Toast.LENGTH_LONG).show()
