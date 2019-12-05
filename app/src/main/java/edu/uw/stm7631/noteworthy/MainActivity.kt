@@ -48,13 +48,13 @@ override fun onCreate(savedInstanceState: Bundle?) {
                         if (task.isSuccessful) {
                             //Registration OK
                             val firebaseUser = auth.currentUser
-                            Toast.makeText(this, "signup successful!", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, getResources().getString(R.string.up_success), Toast.LENGTH_SHORT).show()
                             auth.signInWithEmailAndPassword(newemail.text.toString(), newpassword.text.toString())
                             val intent = Intent(this, SwitchableActivity::class.java)
                             startActivity(intent)
                         } else {
                             //Registration error
-                            Toast.makeText(this, "signup failed", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, getResources().getString(R.string.up_fail), Toast.LENGTH_LONG).show()
                         }
                     }
             }
@@ -64,11 +64,12 @@ override fun onCreate(savedInstanceState: Bundle?) {
             signinButton.setOnClickListener {
                 auth.signInWithEmailAndPassword(email.text.toString(), password.text.toString()).addOnCompleteListener {
                     if (it.isSuccessful) {
+                        Toast.makeText(this, getResources().getString(R.string.in_success), Toast.LENGTH_SHORT).show()
                         val intent = Intent(this, SwitchableActivity::class.java)
                         startActivity(intent)
                     } else {
                         //Registration error
-                        Toast.makeText(this, "signin failed", Toast.LENGTH_SHORT)
+                        Toast.makeText(this, getResources().getString(R.string.in_fail), Toast.LENGTH_LONG).show()
                     }
                 }
             }

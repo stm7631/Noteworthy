@@ -3,4 +3,8 @@
     <string name="title_courses">Courses</string>
     <string name="title_notes">New Note</string>
     <string name="title_camera">New Photo</string>
+    <string name="up_success">Sign-up successful!</string>
+    <string name="up_fail">Sign-up failed.</string>
+    <string name="in_success">Sign-in successful!</string>
+    <string name="in_fail">Sign-in failed.</string>
 </resources>

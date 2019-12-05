@@ -1,5 +1,6 @@
 package edu.uw.stm7631.noteworthy
 
+import android.R.attr.fragment
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -9,14 +10,30 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import edu.uw.stm7631.noteworthy.ui.notes.NotesFragment
+import kotlinx.android.synthetic.main.fragment_notes.*
+
 
 class SwitchableActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
+
+        val intent = getIntent()
+        if (intent.hasExtra("Photo note")) {
+            val sessionId = intent.getStringExtra("Photo note")
+            val bundle = Bundle().apply {
+                putString("Note", sessionId)
+            }
+            this.supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.nav_host_fragment, NotesFragment())
+                .addToBackStack(null)
+                .commit()
+            text_notes.text = sessionId
+        }
 
         val navController = findNavController(R.id.nav_host_fragment)
         // Passing each menu ID as a set of Ids because each
