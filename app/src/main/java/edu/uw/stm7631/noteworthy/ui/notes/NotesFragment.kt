@@ -46,7 +46,7 @@ class NotesFragment : Fragment() {
             ).show()
             var db = FirebaseFirestore.getInstance()
             db.collection("notes").add(hashMapOf(
-                "class" to db.document("/classes/INFO200"),
+                "class" to db.document("/classes/" + note_course_name.selectedItem.toString().replace("\\s".toRegex(), "")),
                 "text" to text_content.text.toString(),
                 "title" to text_heading.text.toString()
             ))

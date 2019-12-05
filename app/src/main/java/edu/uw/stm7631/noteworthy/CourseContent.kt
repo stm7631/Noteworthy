@@ -8,25 +8,26 @@ object CourseContent {
 
     //dummy content
     val ITEMS: MutableList<CourseItem> = arrayListOf(
-        CourseItem("INFO 101", "Social Networking Technologies", "Autumn 2019"),
-        CourseItem("INFO 102", "Gender and Information Technology", "Autumn 2019"),
-        CourseItem("INFO 180", "Introduction to Data Science", "Autumn 2019"),
-        CourseItem("INFO 200", "Intellectual Foundations of Informatics", "Autumn 2019"),
-        CourseItem("INFO 201", "Technical Foundations", "Autumn 2019"),
-        CourseItem("INFO 300", "Research Methods", "Autumn 2019"),
-        CourseItem("INFO 310", "Information Assurance and Cybersecurity", "Autumn 2019"),
-        CourseItem("INFO 314", "Computer Networks and Distributed Applications", "Autumn 2019"),
-        CourseItem("INFO 330", "Databases and Data Modeling", "Autumn 2019"),
-        CourseItem("INFO 340", "Client-Side Development", "Autumn 2019"),
-        CourseItem("INFO 350", "Information Ethics and Policy", "Autumn 2019"),
-        CourseItem("INFO 360", "Design Methods", "Autumn 2019"),
-        CourseItem("INFO 362", "Visual Information Design", "Autumn 2019"),
-        CourseItem("INFO 365", "Mobile Application Design", "Autumn 2019"),
-        CourseItem("INFO 370", "Core Methods in Data Science", "Autumn 2019"),
-        CourseItem("INFO 371", "Advanced Methods in Data Science", "Autumn 2019")
-    ,CourseItem("INFO 380", "Information Systems Analysis and Design", "Autumn 2019"),
-        CourseItem("INFO 441", "Server-Side Development", "Autumn 2019"),
-        CourseItem("INFO 448", "Mobile Development: Android", "Autumn 2019")
+        CourseItem("CSE 142", "Intro to Java", "Winter 2020"),
+        CourseItem("INFO 101", "Social Networking Technologies", "Winter 2020"),
+        CourseItem("INFO 102", "Gender and Information Technology", "Winter 2020"),
+        CourseItem("INFO 180", "Introduction to Data Science", "Winter 2020"),
+        CourseItem("INFO 200", "Intellectual Foundations of Informatics", "Winter 2020"),
+        CourseItem("INFO 201", "Technical Foundations", "Winter 2020"),
+        CourseItem("INFO 300", "Research Methods", "Winter 2020"),
+        CourseItem("INFO 310", "Information Assurance and Cybersecurity", "Winter 2020"),
+        CourseItem("INFO 314", "Computer Networks and Distributed Applications", "Winter 2020"),
+        CourseItem("INFO 330", "Databases and Data Modeling", "Winter 2020"),
+        CourseItem("INFO 340", "Client-Side Development", "Winter 2020"),
+        CourseItem("INFO 350", "Information Ethics and Policy", "Winter 2020"),
+        CourseItem("INFO 360", "Design Methods", "Winter 2020"),
+        CourseItem("INFO 362", "Visual Information Design", "Winter 2020"),
+        CourseItem("INFO 365", "Mobile Application Design", "Winter 2020"),
+        CourseItem("INFO 370", "Core Methods in Data Science", "Winter 2020"),
+        CourseItem("INFO 371", "Advanced Methods in Data Science", "Winter 2020")
+    ,CourseItem("INFO 380", "Information Systems Analysis and Design", "Winter 2020"),
+        CourseItem("INFO 441", "Server-Side Development", "Winter 2020"),
+        CourseItem("INFO 448", "Mobile Development: Android", "Winter 2020")
     )
 
     val MYCOURSES: MutableList<CourseItem> = arrayListOf()

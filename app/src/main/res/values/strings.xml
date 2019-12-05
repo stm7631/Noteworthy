@@ -9,8 +9,23 @@
     <string name="in_fail">Sign-in failed.</string>
     <string name="course_prompt">Choose a course</string>
     <string-array name="course_array">
+        <item>CSE 142</item>
+        <item>INFO 101</item>
         <item>INFO 200</item>
         <item>INFO 201</item>
         <item>INFO 300</item>
+        <item>INFO 310</item>
+        <item>INFO 314</item>
+        <item>INFO 330</item>
+        <item>INFO 340</item>
+        <item>INFO 350</item>
+        <item>INFO 360</item>
+        <item>INFO 362</item>
+        <item>INFO 365</item>
+        <item>INFO 370</item>
+        <item>INFO 371</item>
+        <item>INFO 380</item>
+        <item>INFO 441</item>
+        <item>INFO 448</item>
     </string-array>
 </resources>
