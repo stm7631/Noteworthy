@@ -9,7 +9,12 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.time.LocalDateTime
+import java.util.Calendar
+import java.time.format.DateTimeFormatter
+import java.time.format.FormatStyle
 
 class MainActivity : AppCompatActivity() {
 
@@ -35,6 +40,18 @@ class MainActivity : AppCompatActivity() {
         val inflater = menuInflater
         inflater.inflate(R.menu.example_menu, menu)
         return super.onCreateOptionsMenu(menu)
+    }
+
+    fun displayCurrentDateAndTime() {
+        val now = LocalDateTime.now()
+        var formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
+
+
+
+
+
+
+
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
