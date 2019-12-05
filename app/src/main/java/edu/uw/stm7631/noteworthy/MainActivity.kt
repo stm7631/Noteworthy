@@ -10,6 +10,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import android.view.Menu
+import java.util.Calendar
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -35,7 +36,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+
+override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.welcome)
         signup.setOnClickListener {
@@ -72,7 +74,46 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        // Inflate the menu to use in the action bar
+        val inflater = menuInflater
+        inflater.inflate(R.menu.example_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        when (item.itemId) {
+            R.id.undo -> {
+                item.title = "Undo"
+                true
+            }
+            R.id.redo -> {
+                item.title = "Redo"
+                true
+            }
+            R.id.find -> {
+                item.title = "Find"
+                true
+            }
+            R.id.settings -> {
+                item.title = "Settings"
+
+
+            }
+            R.id.share -> {
+                item.title = "Share"
+            }}
+        return super.onOptionsItemSelected(item)
+    }
 }
+
+
+
+
 
 
 

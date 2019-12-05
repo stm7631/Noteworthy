@@ -17,7 +17,7 @@ android {
     buildToolsVersion "29.0.2"
     defaultConfig {
         applicationId "edu.uw.stm7631.noteworthy"
-        minSdkVersion 21
+        minSdkVersion 26
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"

@@ -1,31 +1,59 @@
 package edu.uw.stm7631.noteworthy.ui.notes
-
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import java.time.LocalDateTime
+import android.view.Menu
+import android.view.MenuItem
+import android.view.*
 import android.widget.TextView
+import java.util.Calendar
+import android.widget.Toast
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
+import java.time.format.DateTimeFormatter
+import java.time.format.FormatStyle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import edu.uw.stm7631.noteworthy.R
+import kotlinx.android.synthetic.main.fragment_courses.*
+import kotlinx.android.synthetic.main.fragment_notes.*
+
 
 class NotesFragment : Fragment() {
-
-    private lateinit var notesViewModel: NotesViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        notesViewModel =
-            ViewModelProviders.of(this).get(NotesViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_notes, container, false)
-        val textView: TextView = root.findViewById(R.id.text_notes)
-        notesViewModel.text.observe(this, Observer {
-            textView.text = it
-        })
+        val textView: TextView = root.findViewById(R.id.text_view_date)
+        textView.text = current_date()
         return root
     }
+
+
+    fun current_date(): String {
+        val current = LocalDateTime.now()
+        val formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM)
+        val formatted = current.format(formatter)
+        return "$formatted"
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        save.setOnClickListener {
+            Toast.makeText(
+                this.context, "Note is saved.",
+                Toast.LENGTH_LONG
+            ).show()
+        }
+    }
 }
+
+
+
+
+
+
+
