@@ -15,6 +15,7 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import edu.uw.stm7631.noteworthy.CourseContent.ITEMS
 import edu.uw.stm7631.noteworthy.CourseContent.auth
@@ -54,7 +55,8 @@ override fun onCreate(savedInstanceState: Bundle?) {
                             db.collection("users").document(newemail.text.toString()).set(
                                 hashMapOf(
                                     "name" to name.text.toString(),
-                                    "email" to newemail.text.toString()
+                                    "email" to newemail.text.toString(),
+                                    "classes" to ArrayList<DocumentReference>()
                                 ))
                                 .addOnSuccessListener {
                                     Toast.makeText(this, "signup successful!", Toast.LENGTH_SHORT).show()
@@ -89,40 +91,6 @@ override fun onCreate(savedInstanceState: Bundle?) {
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu to use in the action bar
-        val inflater = menuInflater
-        inflater.inflate(R.menu.example_menu, menu)
-        return super.onCreateOptionsMenu(menu)
-    }
-
-
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-
-        when (item.itemId) {
-            R.id.undo -> {
-                item.title = "Undo"
-                true
-            }
-            R.id.redo -> {
-                item.title = "Redo"
-                true
-            }
-            R.id.find -> {
-                item.title = "Find"
-                true
-            }
-            R.id.settings -> {
-                item.title = "Settings"
-
-
-            }
-            R.id.share -> {
-                item.title = "Share"
-            }}
-        return super.onOptionsItemSelected(item)
-    }
 }
 
 

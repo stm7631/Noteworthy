@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import edu.uw.stm7631.noteworthy.ui.courses.NoteListFragment
+import edu.uw.stm7631.noteworthy.ui.notes.NotesFragment
 import kotlinx.android.synthetic.main.note_card.view.*
 
 class NotesRecyclerViewAdapter(private val values: List<CourseContent.NoteItem>, private val context: Context)
@@ -16,13 +17,6 @@ class NotesRecyclerViewAdapter(private val values: List<CourseContent.NoteItem>,
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.note_card, parent, false)
-//        view.setOnClickListener {
-//            (context as FragmentActivity).supportFragmentManager
-//                .beginTransaction()
-//                .add(R.id.nav_host_fragment, NoteListFragment())
-//                .addToBackStack(null)
-//                .commit()
-//        }
         return ViewHolder(view)
     }
 

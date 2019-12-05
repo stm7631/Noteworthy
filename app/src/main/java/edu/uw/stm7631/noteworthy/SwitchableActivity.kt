@@ -19,7 +19,6 @@ import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.fragment_courses.*
 import java.util.*
 import kotlin.collections.ArrayList
-import com.google.firebase.firestore.FirebaseFirestore
 import edu.uw.stm7631.noteworthy.ui.notes.NotesFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_notes.*
