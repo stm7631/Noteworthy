@@ -18,30 +18,44 @@ import kotlinx.android.synthetic.main.fragment_notes.*
 
 class NotesFragment : Fragment() {
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val root = inflater.inflate(R.layout.fragment_notes, container, false)
-        val textView: TextView = root.findViewById(R.id.text_view_date)
-        textView.text = current_date()
-        return root
+    private var paramData: String? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        arguments?.let {
+            paramData = it.getString("note")
+        }
     }
 
-
-    fun current_date(): String {
-        return Calendar.getInstance().time.toString()
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        val root = inflater.inflate(R.layout.fragment_notes, container, false)
+        val textView: TextView = root.findViewById(R.id.text_view_date)
+        textView.text = Calendar.getInstance().time.toString()
+        return root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         save.setOnClickListener {
             Toast.makeText(
-                this.context, "Note is saved.",
+                this.context, "Note saved!",
                 Toast.LENGTH_LONG
             ).show()
         }
+
+        text_content.apply {
+            setText(paramData)
+        }
+    }
+
+    companion object {
+        @JvmStatic
+        fun newInstance(paramData: String) =
+            NotesFragment().apply {
+                arguments = Bundle().apply {
+                    putString("note", paramData)
+                }
+            }
     }
 }
 

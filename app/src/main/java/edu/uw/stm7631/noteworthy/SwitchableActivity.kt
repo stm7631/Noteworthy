@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -12,6 +13,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.firestore.FirebaseFirestore
 import edu.uw.stm7631.noteworthy.ui.notes.NotesFragment
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_notes.*
 
 
@@ -24,15 +26,14 @@ class SwitchableActivity : AppCompatActivity() {
         val intent = getIntent()
         if (intent.hasExtra("Photo note")) {
             val sessionId = intent.getStringExtra("Photo note")
-            val bundle = Bundle().apply {
-                putString("Note", sessionId)
+            var fragment = NotesFragment.newInstance(sessionId!!)
+            supportFragmentManager.beginTransaction().run {
+                add(R.id.nav_host_fragment, fragment)
+                addToBackStack(null)
+                commit()
             }
-            this.supportFragmentManager
-                .beginTransaction()
-                .replace(R.id.nav_host_fragment, NotesFragment())
-                .addToBackStack(null)
-                .commit()
-            text_notes.text = sessionId
+            navView.selectedItemId = (R.id.navigation_notes)
+
         }
 
         val navController = findNavController(R.id.nav_host_fragment)
@@ -66,36 +67,36 @@ class SwitchableActivity : AppCompatActivity() {
 
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu to use in the action bar
-        val inflater = menuInflater
-        inflater.inflate(R.menu.example_menu, menu)
-        return super.onCreateOptionsMenu(menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-
-        when (item.itemId) {
-            R.id.undo -> {
-                item.title = "Undo"
-                true
-            }
-            R.id.redo -> {
-                item.title = "Redo"
-                true
-            }
-            R.id.find -> {
-                item.title = "Find"
-                true
-            }
-            R.id.settings -> {
-                item.title = "Settings"
-
-
-            }
-            R.id.share -> {
-                item.title = "Share"
-            }}
-        return super.onOptionsItemSelected(item)
-    }
+//    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+//        // Inflate the menu to use in the action bar
+//        val inflater = menuInflater
+//        inflater.inflate(R.menu.example_menu, menu)
+//        return super.onCreateOptionsMenu(menu)
+//    }
+//
+//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//
+//        when (item.itemId) {
+//            R.id.undo -> {
+//                item.title = "Undo"
+//                true
+//            }
+//            R.id.redo -> {
+//                item.title = "Redo"
+//                true
+//            }
+//            R.id.find -> {
+//                item.title = "Find"
+//                true
+//            }
+//            R.id.settings -> {
+//                item.title = "Settings"
+//
+//
+//            }
+//            R.id.share -> {
+//                item.title = "Share"
+//            }}
+//        return super.onOptionsItemSelected(item)
+//    }
 }
