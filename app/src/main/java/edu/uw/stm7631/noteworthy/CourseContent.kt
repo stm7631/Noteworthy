@@ -1,8 +1,10 @@
 package edu.uw.stm7631.noteworthy
 
+import com.google.firebase.auth.FirebaseAuth
 import java.util.ArrayList
 
 object CourseContent {
+    lateinit var auth: FirebaseAuth
 
     //dummy content
     val ITEMS: MutableList<CourseItem> = arrayListOf(

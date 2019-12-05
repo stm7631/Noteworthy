@@ -3,6 +3,7 @@ package edu.uw.stm7631.noteworthy
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -11,6 +12,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import java.util.*
 
 class SwitchableActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,6 +32,8 @@ class SwitchableActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
 
 
+
+        Toast.makeText(this, Calendar.getInstance().time.toString(), Toast.LENGTH_LONG).show()
         var db = FirebaseFirestore.getInstance()
 
         val docRef = db.collection("users")
