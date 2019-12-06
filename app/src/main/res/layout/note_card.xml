@@ -12,7 +12,8 @@ android:orientation="vertical">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp">
+        android:layout_margin="16dp"
+        android:layout_marginBottom="0dp">
 
         <TextView
             android:id="@+id/note_name"
@@ -30,6 +31,15 @@ android:orientation="vertical">
             android:layout_below="@id/note_name"
             android:text="AUTHOR"
             android:textSize="24sp"
+            android:includeFontPadding="false"/>
+
+        <TextView
+            android:id="@+id/note_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/note_author"
+            android:text="CONTENT"
+            android:textSize="16sp"
             android:includeFontPadding="false"/>
 
     </RelativeLayout>

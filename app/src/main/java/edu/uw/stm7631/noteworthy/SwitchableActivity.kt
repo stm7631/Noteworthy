@@ -33,13 +33,14 @@ class SwitchableActivity : AppCompatActivity() {
         val intent = getIntent()
         if (intent.hasExtra("Photo note")) {
             val sessionId = intent.getStringExtra("Photo note")
-            var fragment = NotesFragment.newInstance(sessionId!!)
-            supportFragmentManager.beginTransaction().run {
-                add(R.id.nav_host_fragment, fragment)
-                addToBackStack(null)
-                commit()
-            }
-            navView.selectedItemId = (R.id.navigation_notes)
+            Toast.makeText(this, sessionId, Toast.LENGTH_LONG).show()
+//            var fragment = NotesFragment.newInstance(sessionId!!)
+//            supportFragmentManager.beginTransaction().run {
+//                add(R.id.nav_host_fragment, fragment)
+//                addToBackStack(null)
+//                commit()
+//            }
+//            navView.selectedItemId = (R.id.navigation_notes)
 
         }
 

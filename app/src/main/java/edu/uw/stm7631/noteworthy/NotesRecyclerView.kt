@@ -24,6 +24,7 @@ class NotesRecyclerViewAdapter(private val values: List<CourseContent.NoteItem>,
         val item = values[position]
         holder.title.text = item.title
         holder.author.text = item.author
+//        holder.content.text = item.content
 
         with(holder.itemView) {
             tag = item
@@ -35,5 +36,6 @@ class NotesRecyclerViewAdapter(private val values: List<CourseContent.NoteItem>,
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val title: TextView = view.note_name
         val author: TextView = view.note_author
+        val content: TextView = view.note_content
     }
 }
