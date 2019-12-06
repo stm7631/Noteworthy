@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.fragment_notes.*
 import java.util.ArrayList
 
 
-class NotesFragment : Fragment() {
+class NotesFragment : Fragment() {      //creates a Notes fragment
 
     private var paramData: String? = null
 
@@ -33,15 +33,15 @@ class NotesFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val root = inflater.inflate(R.layout.fragment_notes, container, false)
         val textView: TextView = root.findViewById(R.id.text_view_date)
-        textView.text = Calendar.getInstance().time.toString()
+        textView.text = Calendar.getInstance().time.toString() //displays the date and time on top of the notes screen.
         return root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        save.setOnClickListener {
+        save.setOnClickListener {  //performs action when user clicks on floating action button.
             Toast.makeText(
-                this.context, "Note saved!",
+                this.context, "Note saved!", //Shows toast message 'Note saved' when user taps on floating action button with checkmark.
                 Toast.LENGTH_LONG
             ).show()
             var db = FirebaseFirestore.getInstance()
