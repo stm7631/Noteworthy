@@ -6,7 +6,7 @@ import java.util.ArrayList
 object CourseContent {
     lateinit var auth: FirebaseAuth
 
-    //dummy content
+    //The course list for adding courses
     val ITEMS: MutableList<CourseItem> = arrayListOf(
         CourseItem("CSE 142", "Intro to Java", "Winter 2020"),
         CourseItem("INFO 101", "Social Networking Technologies", "Winter 2020"),
@@ -30,13 +30,15 @@ object CourseContent {
         CourseItem("INFO 448", "Mobile Development: Android", "Winter 2020")
     )
 
+    // My courses retrieved from Firebase
     val MYCOURSES: MutableList<CourseItem> = arrayListOf()
 
-    var USER: String = ""
+    var USER: String = "" // The current user's name
 
-    //dummy content
+    //Notes when they are retrieved for each class
     val NOTES: MutableList<NoteItem> = arrayListOf()
 
+    // Data classes
     data class User(val name: String, val email: String) {
         override fun toString(): String = email
     }

@@ -46,6 +46,7 @@ class NotesFragment : Fragment() {      //creates a Notes fragment
                 Toast.LENGTH_LONG
             ).show()
             var db = FirebaseFirestore.getInstance()
+            // Send the new note to Firebase
             db.collection("notes").add(hashMapOf(
                 "class" to db.document("/classes/" + note_course_name.selectedItem.toString().replace("\\s".toRegex(), "")),
                 "text" to text_content.text.toString(),
