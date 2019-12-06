@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
+//sets up database and checks login/registration
 override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.welcome)
@@ -74,7 +74,8 @@ override fun onCreate(savedInstanceState: Bundle?) {
                     }
             }
         }
-        login.setOnClickListener {          //When user clicks on Sign In
+        //When user clicks on Sign In
+        login.setOnClickListener {
             setContentView(R.layout.signin)
             signinButton.setOnClickListener {
                 auth.signInWithEmailAndPassword(email.text.toString(), password.text.toString()).addOnCompleteListener {// lets users sign in with email and password.

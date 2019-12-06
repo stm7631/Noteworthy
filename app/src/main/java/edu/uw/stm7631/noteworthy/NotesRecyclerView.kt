@@ -14,12 +14,14 @@ import kotlinx.android.synthetic.main.note_card.view.*
 class NotesRecyclerViewAdapter(private val values: List<CourseContent.NoteItem>, private val context: Context)
     : RecyclerView.Adapter<NotesRecyclerViewAdapter.ViewHolder>() {
 
+    //inflate note card view
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.note_card, parent, false)
         return ViewHolder(view)
     }
 
+    //bind text and clickable elements
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = values[position]
         holder.title.text = item.title

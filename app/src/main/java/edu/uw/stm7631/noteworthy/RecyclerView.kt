@@ -16,12 +16,14 @@ import kotlinx.android.synthetic.main.course_card.view.*
 class RecyclerViewAdapter(private val values: List<CourseContent.CourseItem>, private val context: Context)
     : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
 
+    //create course card view
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.course_card, parent, false)
         return ViewHolder(view)
     }
 
+    //bind text and clickable elements
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = values[position]
         holder.course.text = item.course

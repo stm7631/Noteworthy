@@ -1,35 +1,25 @@
 package edu.uw.stm7631.noteworthy
 
-import android.R.attr.fragment
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
 import android.os.Build
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
-import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
-import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
-import edu.uw.stm7631.noteworthy.CourseContent.MYCOURSES
 import edu.uw.stm7631.noteworthy.CourseContent.USER
 import kotlinx.android.synthetic.main.fragment_courses.*
-import java.util.*
 import kotlin.collections.ArrayList
 import edu.uw.stm7631.noteworthy.ui.notes.NotesFragment
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.fragment_notes.*
 
 enum class NotificationID {
     BASIC,
@@ -55,14 +45,13 @@ class SwitchableActivity : AppCompatActivity() {
         val intent = getIntent()
         if (intent.hasExtra("Photo note")) {      //checks if extras are set or not.
             val sessionId = intent.getStringExtra("Photo note") //checks if extra string is set or not.
-            Toast.makeText(this, sessionId, Toast.LENGTH_LONG).show()
-//            var fragment = NotesFragment.newInstance(sessionId!!)
-//            supportFragmentManager.beginTransaction().run {
-//                add(R.id.nav_host_fragment, fragment)
-//                addToBackStack(null)
-//                commit()
-//            }
-//            navView.selectedItemId = (R.id.navigation_notes)
+            var fragment = NotesFragment.newInstance(sessionId!!)
+            supportFragmentManager.beginTransaction().run {
+                add(R.id.nav_host_fragment, fragment)
+                addToBackStack(null)
+                commit()
+            }
+            navView.selectedItemId = (R.id.navigation_notes)
 
         }
 
@@ -78,7 +67,7 @@ class SwitchableActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
 
 
-
+        //setup database and populate with courses
         var db = FirebaseFirestore.getInstance()
         val user = db.collection("users").document(CourseContent.auth.currentUser?.email!!)
         user.get()
@@ -112,11 +101,13 @@ class SwitchableActivity : AppCompatActivity() {
             }
     }
 
+    //setup basic notification for showing when new users notes are added
     fun displayNotificationSimple() {
         val builder = buildBasicNotification()
         showBasicNotification(builder)
     }
 
+    //build notification
     private fun buildBasicNotification(): NotificationCompat.Builder {
         var builder = NotificationCompat.Builder(this, "BASIC")
             .setSmallIcon(android.R.drawable.ic_menu_add)
@@ -126,6 +117,7 @@ class SwitchableActivity : AppCompatActivity() {
         return builder
     }
 
+    //show notification
     private fun showBasicNotification(builder: NotificationCompat.Builder) {
         val notificationManager =
             getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager

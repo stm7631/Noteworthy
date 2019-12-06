@@ -5,7 +5,7 @@
     <string name="saved">Note Saved</string>
     <string name="title_camera">New Photo</string>
     <string name="success">Success</string>
-    <string name="up_success">Sign-up successful!</string>
+    <string name="up_success">Sign-up successful! Start adding courses.</string>
     <string name="up_fail">Sign-up failed. Try a longer password!</string>
     <string name="in_success">Sign-in successful!</string>
     <string name="in_fail">Sign-in failed.</string>

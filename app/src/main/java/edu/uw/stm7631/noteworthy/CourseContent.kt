@@ -6,7 +6,7 @@ import java.util.ArrayList
 object CourseContent {
     lateinit var auth: FirebaseAuth
 
-    //dummy content
+    //content for spinner view and add courses
     val ITEMS: MutableList<CourseItem> = arrayListOf(
         CourseItem("CSE 142", "Intro to Java", "Winter 2020"),
         CourseItem("INFO 101", "Social Networking Technologies", "Winter 2020"),
@@ -30,6 +30,7 @@ object CourseContent {
         CourseItem("INFO 448", "Mobile Development: Android", "Winter 2020")
     )
 
+    //courses that the user selects
     val MYCOURSES: MutableList<CourseItem> = arrayListOf()
 
     var USER: String = ""
