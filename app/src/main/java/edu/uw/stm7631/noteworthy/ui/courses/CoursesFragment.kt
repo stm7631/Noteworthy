@@ -25,7 +25,7 @@ class CoursesFragment : Fragment() {
         val context = (getActivity() as Context)
         val recyclerView = root.findViewById(R.id.course_recycle) as RecyclerView
         recyclerView.adapter = RecyclerViewAdapter(CourseContent.MYCOURSES, context)
-        recyclerView.layoutManager = LinearLayoutManager(activity)
+        recyclerView.layoutManager = LinearLayoutManager(activity)   //sets linear layout to recycler view.
 //        if (CourseContent.MYCOURSES.isEmpty()) {
 //            root = inflater.inflate(R.layout.get_started, container, false)
 //        }
@@ -44,11 +44,11 @@ class CoursesFragment : Fragment() {
 //                    .commit()
 //            }
 //        } else {
-            fab.setOnClickListener {
+            fab.setOnClickListener {         //Sets action for the add courses floating action button.
                 (context as FragmentActivity).supportFragmentManager
                     .beginTransaction()
                     .remove(CoursesFragment())
-                    .add(R.id.nav_host_fragment, CoursesAddFragment())
+                    .add(R.id.nav_host_fragment, CoursesAddFragment())  //navigates the user to the courses add fragment 
                     .addToBackStack(null)
                     .commit()
             }

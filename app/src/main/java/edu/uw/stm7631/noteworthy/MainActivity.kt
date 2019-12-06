@@ -56,7 +56,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
                                 hashMapOf(
                                     "name" to name.text.toString(),    //converts user name to string.
                                     "email" to newemail.text.toString(),  // converts email id to string.
-                                    "classes" to ArrayList<DocumentReference>()  
+                                    "classes" to ArrayList<DocumentReference>()
                                 ))
                                 .addOnSuccessListener { //adds listener if registration is successful.
                                     Toast.makeText(this, "signup successful!", Toast.LENGTH_SHORT).show()  // Displays toast message when signup is successful.
