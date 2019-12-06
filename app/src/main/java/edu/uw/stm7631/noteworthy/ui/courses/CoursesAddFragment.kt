@@ -17,9 +17,9 @@ class CoursesAddFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val root = inflater.inflate(R.layout.fragment_add_courses, container, false)
-        val recyclerView = root.findViewById(R.id.course_recycle) as RecyclerView
+        val recyclerView = root.findViewById(R.id.course_recycle) as RecyclerView  //creates recycler view from xml
         recyclerView.adapter = AddRecyclerViewAdapter(CourseContent.ITEMS, getActivity() as Context)
-        recyclerView.layoutManager = LinearLayoutManager(activity)
+        recyclerView.layoutManager = LinearLayoutManager(activity) //sets linear layout to recycler view.
         return root
     }
 }

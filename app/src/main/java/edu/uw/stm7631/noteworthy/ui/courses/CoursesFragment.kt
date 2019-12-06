@@ -48,7 +48,7 @@ class CoursesFragment : Fragment() {
                 (context as FragmentActivity).supportFragmentManager
                     .beginTransaction()
                     .remove(CoursesFragment())
-                    .add(R.id.nav_host_fragment, CoursesAddFragment())  //navigates the user to the courses add fragment 
+                    .add(R.id.nav_host_fragment, CoursesAddFragment())  //navigates the user to the courses add fragment
                     .addToBackStack(null)
                     .commit()
             }
