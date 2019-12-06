@@ -22,6 +22,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
+import edu.uw.stm7631.noteworthy.CourseContent.DEFAULT
 import edu.uw.stm7631.noteworthy.CourseContent.MYCOURSES
 import edu.uw.stm7631.noteworthy.CourseContent.USER
 import kotlinx.android.synthetic.main.fragment_courses.*
@@ -55,14 +56,13 @@ class SwitchableActivity : AppCompatActivity() {
         val intent = getIntent()
         if (intent.hasExtra("Photo note")) {      //checks if extras are set or not.
             val sessionId = intent.getStringExtra("Photo note") //checks if extra string is set or not.
-            Toast.makeText(this, sessionId, Toast.LENGTH_LONG).show()
-//            var fragment = NotesFragment.newInstance(sessionId!!)
-//            supportFragmentManager.beginTransaction().run {
-//                add(R.id.nav_host_fragment, fragment)
-//                addToBackStack(null)
-//                commit()
-//            }
-//            navView.selectedItemId = (R.id.navigation_notes)
+            var fragment = NotesFragment.newInstance(sessionId!!)
+            supportFragmentManager.beginTransaction().run {
+                add(R.id.nav_host_fragment, fragment)
+                addToBackStack(null)
+                commit()
+            }
+            navView.selectedItemId = (R.id.navigation_notes)
 
         }
 
@@ -91,9 +91,6 @@ class SwitchableActivity : AppCompatActivity() {
                         CourseContent.MYCOURSES.add(CourseContent.CourseItem(it["code"].toString(), it["name"].toString(), it["date"].toString()))
                         course_recycle.adapter = RecyclerViewAdapter(CourseContent.MYCOURSES, this)
                         course_recycle.layoutManager = LinearLayoutManager(this)  //sets linear layout manager to recycler view.
-                        if (CourseContent.MYCOURSES.isEmpty()) {
-                            Toast.makeText(this, "Add some courses!", Toast.LENGTH_LONG).show() // shows toast message to add courses.
-                        }
                     }
                 }
                 if (!courses.isEmpty()) {
@@ -104,7 +101,7 @@ class SwitchableActivity : AppCompatActivity() {
                 }
             }
             .addOnFailureListener { exception ->
-                CourseContent.ITEMS.add(CourseContent.CourseItem("failed", "hi", "hi"))
+                Toast.makeText(this, exception.toString(), Toast.LENGTH_LONG).show()
             }
     }
 

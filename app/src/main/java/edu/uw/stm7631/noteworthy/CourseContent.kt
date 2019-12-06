@@ -32,6 +32,10 @@ object CourseContent {
 
     val MYCOURSES: MutableList<CourseItem> = arrayListOf()
 
+    val DEFAULT: MutableList<CourseItem> = arrayListOf(
+        CourseItem("Start adding courses!", "Click the button below to get started.", "")
+    )
+
     var USER: String = ""
 
     //dummy content
