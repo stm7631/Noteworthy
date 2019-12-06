@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         // Check if user is signed in (non-null) and update UI accordingly.
         val currentUser = auth.currentUser
-        if (currentUser != null) {
+        if (currentUser != null) {  //checks if the user is not null before starting activity.
             val intent = Intent(this, SwitchableActivity::class.java)
             startActivity(intent)
         }
@@ -45,27 +45,27 @@ override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.welcome)
         var db = FirebaseFirestore.getInstance()
-        signup.setOnClickListener {
+        signup.setOnClickListener {  // user clicks on Sign up button to initilaise SignUp process.
             setContentView(R.layout.signup)
             signupButton.setOnClickListener {
-                auth.createUserWithEmailAndPassword(newemail.text.toString(), newpassword.text.toString())
+                auth.createUserWithEmailAndPassword(newemail.text.toString(), newpassword.text.toString())  // Clicking on SignUp, the email and password form view appears.
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
                             //Registration OK
                             db.collection("users").document(newemail.text.toString()).set(
                                 hashMapOf(
-                                    "name" to name.text.toString(),
-                                    "email" to newemail.text.toString(),
-                                    "classes" to ArrayList<DocumentReference>()
+                                    "name" to name.text.toString(),    //converts user name to string.
+                                    "email" to newemail.text.toString(),  // converts email id to string.
+                                    "classes" to ArrayList<DocumentReference>()  
                                 ))
-                                .addOnSuccessListener {
-                                    Toast.makeText(this, "signup successful!", Toast.LENGTH_SHORT).show()
-                                    auth.signInWithEmailAndPassword(newemail.text.toString(), newpassword.text.toString())
+                                .addOnSuccessListener { //adds listener if registration is successful.
+                                    Toast.makeText(this, "signup successful!", Toast.LENGTH_SHORT).show()  // Displays toast message when signup is successful.
+                                    auth.signInWithEmailAndPassword(newemail.text.toString(), newpassword.text.toString())  //Converts email and password to string format.
                                     val intent = Intent(this, SwitchableActivity::class.java)
                                     startActivity(intent)
                                 }
                                 .addOnFailureListener {
-                                    Toast.makeText(this, "signup failed :(", Toast.LENGTH_SHORT).show()
+                                    Toast.makeText(this, "signup failed :(", Toast.LENGTH_SHORT).show() // Adds listener if Signup fails. The resulting action is toast message.
                                 }
                         } else {
                             //Registration error
@@ -74,17 +74,17 @@ override fun onCreate(savedInstanceState: Bundle?) {
                     }
             }
         }
-        login.setOnClickListener {
+        login.setOnClickListener {          //When user clicks on Sign In
             setContentView(R.layout.signin)
             signinButton.setOnClickListener {
-                auth.signInWithEmailAndPassword(email.text.toString(), password.text.toString()).addOnCompleteListener {
+                auth.signInWithEmailAndPassword(email.text.toString(), password.text.toString()).addOnCompleteListener {// lets users sign in with email and password.
                     if (it.isSuccessful) {
                         Toast.makeText(this, getResources().getString(R.string.in_success), Toast.LENGTH_SHORT).show()
-                        val intent = Intent(this, SwitchableActivity::class.java)
+                        val intent = Intent(this, SwitchableActivity::class.java)  //starts switchable activity if signin is successful.
                         startActivity(intent)
                     } else {
                         //Registration error
-                        Toast.makeText(this, getResources().getString(R.string.in_fail), Toast.LENGTH_LONG).show()
+                        Toast.makeText(this, getResources().getString(R.string.in_fail), Toast.LENGTH_LONG).show() //toast message if signin fails.
                     }
                 }
             }
