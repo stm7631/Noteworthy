@@ -4,8 +4,6 @@ import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
-//import android.support.v4.app.ActivityCompat
-//import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.SurfaceHolder
 import android.view.SurfaceView
@@ -20,7 +18,6 @@ import java.io.IOException
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import kotlinx.android.synthetic.main.camera_main.*
-import kotlinx.android.synthetic.main.fragment_notes.*
 
 class CameraActivity : AppCompatActivity() {
     var mCameraView: SurfaceView? = null

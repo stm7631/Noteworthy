@@ -1,23 +1,17 @@
 package edu.uw.stm7631.noteworthy
 
 import android.content.Context
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
-import androidx.fragment.app.FragmentActivity
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import edu.uw.stm7631.noteworthy.CourseContent.MYCOURSES
 import edu.uw.stm7631.noteworthy.CourseContent.auth
-import edu.uw.stm7631.noteworthy.ui.courses.CoursesAddFragment
-import edu.uw.stm7631.noteworthy.ui.courses.CoursesFragment
 import kotlinx.android.synthetic.main.course_add_card.view.*
-import kotlinx.android.synthetic.main.fragment_courses.*
 
 class AddRecyclerViewAdapter(private val values: List<CourseContent.CourseItem>, private val context: Context)
     : RecyclerView.Adapter<AddRecyclerViewAdapter.ViewHolder>() {

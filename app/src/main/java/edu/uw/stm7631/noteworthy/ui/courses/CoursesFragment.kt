@@ -8,13 +8,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import edu.uw.stm7631.noteworthy.CourseContent
-import edu.uw.stm7631.noteworthy.RecyclerViewAdapter
 import androidx.recyclerview.widget.RecyclerView
+import edu.uw.stm7631.noteworthy.CourseContent
 import edu.uw.stm7631.noteworthy.R
+import edu.uw.stm7631.noteworthy.RecyclerViewAdapter
 import kotlinx.android.synthetic.main.fragment_courses.*
-import kotlinx.android.synthetic.main.fragment_courses.view.*
-import kotlinx.android.synthetic.main.get_started.*
 
 
 class CoursesFragment : Fragment() {

@@ -8,15 +8,12 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import edu.uw.stm7631.noteworthy.CourseContent
-import edu.uw.stm7631.noteworthy.RecyclerViewAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
+import edu.uw.stm7631.noteworthy.CourseContent
 import edu.uw.stm7631.noteworthy.CourseContent.NOTES
 import edu.uw.stm7631.noteworthy.NotesRecyclerViewAdapter
 import edu.uw.stm7631.noteworthy.R
-import kotlinx.android.synthetic.main.note_card.view.*
-import edu.uw.stm7631.noteworthy.ui.notes.NotesFragment
 
 
 class NoteListFragment : Fragment() {
