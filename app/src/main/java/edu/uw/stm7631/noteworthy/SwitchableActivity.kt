@@ -97,7 +97,11 @@ class SwitchableActivity : AppCompatActivity() {
                     }
                 }
                 if (!courses.isEmpty()) {
-                    db.collection("notes").whereIn("class", courses)
+                    db.collection("notes").whereIn("class", courses).whereLessThan("name", USER)
+                        .addSnapshotListener { notes, firebaseFirestoreException ->
+                            displayNotificationSimple()
+                        }
+                    db.collection("notes").whereIn("class", courses).whereGreaterThan("name", USER)
                         .addSnapshotListener { notes, firebaseFirestoreException ->
                             displayNotificationSimple()
                         }
@@ -127,5 +131,4 @@ class SwitchableActivity : AppCompatActivity() {
             getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         notificationManager.notify(NotificationID.BASIC.ordinal, builder.build())
     }
-
 }
