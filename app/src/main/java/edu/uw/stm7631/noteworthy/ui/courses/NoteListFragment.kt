@@ -39,7 +39,7 @@ class NoteListFragment : Fragment() {
             .addOnSuccessListener { notes ->
                 for (note in notes) {
 //                    root.note_name.setText(note["title"].toString())
-                    NOTES.add(CourseContent.NoteItem(note["title"].toString(), note["text"].toString(), note["title"].toString()))
+                    NOTES.add(CourseContent.NoteItem(note["title"].toString(), note["author"].toString(), note["text"].toString()))
                 }
                 recyclerView.adapter = NotesRecyclerViewAdapter(CourseContent.NOTES, getActivity() as Context)
                 recyclerView.layoutManager = LinearLayoutManager(activity)

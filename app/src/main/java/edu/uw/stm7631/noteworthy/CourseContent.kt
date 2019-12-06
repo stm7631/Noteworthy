@@ -32,6 +32,8 @@ object CourseContent {
 
     val MYCOURSES: MutableList<CourseItem> = arrayListOf()
 
+    var USER: String = ""
+
     //dummy content
     val NOTES: MutableList<NoteItem> = arrayListOf()
 
@@ -44,7 +46,7 @@ object CourseContent {
         override fun toString(): String = course
     }
 
-    data class NoteItem(val title: String, val author: String, val date: String) {
+    data class NoteItem(val title: String, val author: String, val content: String) {
         override fun toString(): String = title
     }
 }
