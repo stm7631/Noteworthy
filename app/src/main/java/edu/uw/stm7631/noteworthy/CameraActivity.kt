@@ -43,6 +43,10 @@ class CameraActivity : AppCompatActivity() {
         }
     }
 
+    //based off of open-source code & google vision
+    //original author: Prakash Pun
+    //https://medium.com/@prakash_pun/text-recognition-for-android-using-google-mobile-vision-a8ffabe3f5d6
+
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
         if (requestCode != requestPermissionID) {
             Log.d(TAG, "Got unexpected permission result: $requestCode")

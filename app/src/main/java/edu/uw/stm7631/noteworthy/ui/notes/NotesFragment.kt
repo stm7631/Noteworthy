@@ -38,6 +38,7 @@ class NotesFragment : Fragment() {      //creates a Notes fragment
         return root
     }
 
+    //set note content using course id
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         save.setOnClickListener {  //performs action when user clicks on floating action button.
@@ -60,6 +61,7 @@ class NotesFragment : Fragment() {      //creates a Notes fragment
         }
     }
 
+    //initialize new note object with the course name
     companion object {
         @JvmStatic
         fun newInstance(paramData: String) =

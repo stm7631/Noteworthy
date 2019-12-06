@@ -22,6 +22,7 @@ import kotlinx.android.synthetic.main.fragment_courses.*
 class AddRecyclerViewAdapter(private val values: List<CourseContent.CourseItem>, private val context: Context)
     : RecyclerView.Adapter<AddRecyclerViewAdapter.ViewHolder>() {
 
+    //view holder that tracks selected items and adds to database
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.course_add_card, parent, false)
@@ -58,6 +59,7 @@ class AddRecyclerViewAdapter(private val values: List<CourseContent.CourseItem>,
         return ViewHolder(view)
     }
 
+    //bind content to card
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = values[position]
         holder.course.text = item.course
