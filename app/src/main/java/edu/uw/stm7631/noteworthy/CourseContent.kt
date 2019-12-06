@@ -30,14 +30,15 @@ object CourseContent {
         CourseItem("INFO 448", "Mobile Development: Android", "Winter 2020")
     )
 
-    //courses that the user selects
+    // My courses retrieved from Firebase
     val MYCOURSES: MutableList<CourseItem> = arrayListOf()
 
-    var USER: String = ""
+    var USER: String = "" // The current user's name
 
-    //dummy content
+    //Notes when they are retrieved for each class
     val NOTES: MutableList<NoteItem> = arrayListOf()
 
+    // Data classes
     data class User(val name: String, val email: String) {
         override fun toString(): String = email
     }

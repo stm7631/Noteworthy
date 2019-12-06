@@ -75,7 +75,7 @@ class SwitchableActivity : AppCompatActivity() {
                 USER = user["name"].toString()
                 CourseContent.MYCOURSES.clear()
                 val courses = user.data?.getValue("classes") as ArrayList<DocumentReference>
-                for (cor in courses) {
+                for (cor in courses) { // For each course stores in your course list on Firebase retrieve it and add it to your course list
                     cor.get().addOnSuccessListener {
                         CourseContent.MYCOURSES.add(CourseContent.CourseItem(it["code"].toString(), it["name"].toString(), it["date"].toString()))
                         course_recycle.adapter = RecyclerViewAdapter(CourseContent.MYCOURSES, this)
@@ -85,6 +85,7 @@ class SwitchableActivity : AppCompatActivity() {
                         }
                     }
                 }
+                // Add listeners to let yourself know when people besides yourself add a note to a class in your list
                 if (!courses.isEmpty()) {
                     db.collection("notes").whereIn("class", courses).whereLessThan("name", USER)
                         .addSnapshotListener { notes, firebaseFirestoreException ->
