@@ -42,7 +42,7 @@ class NotesFragment : Fragment() {      //creates a Notes fragment
         super.onActivityCreated(savedInstanceState)
         save.setOnClickListener {  //performs action when user clicks on floating action button.
             Toast.makeText(
-                this.context, "Note saved!", //Shows toast message 'Note saved' when user taps on floating action button with checkmark.
+                this.context, R.string.saved, //Shows toast message 'Note saved' when user taps on floating action button with checkmark.
                 Toast.LENGTH_LONG
             ).show()
             var db = FirebaseFirestore.getInstance()

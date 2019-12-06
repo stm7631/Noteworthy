@@ -59,17 +59,17 @@ override fun onCreate(savedInstanceState: Bundle?) {
                                     "classes" to ArrayList<DocumentReference>()
                                 ))
                                 .addOnSuccessListener { //adds listener if registration is successful.
-                                    Toast.makeText(this, "signup successful!", Toast.LENGTH_SHORT).show()  // Displays toast message when signup is successful.
+                                    Toast.makeText(this, R.string.up_success, Toast.LENGTH_SHORT).show()  // Displays toast message when signup is successful.
                                     auth.signInWithEmailAndPassword(newemail.text.toString(), newpassword.text.toString())  //Converts email and password to string format.
                                     val intent = Intent(this, SwitchableActivity::class.java)
                                     startActivity(intent)
                                 }
                                 .addOnFailureListener {
-                                    Toast.makeText(this, "signup failed :(", Toast.LENGTH_SHORT).show() // Adds listener if Signup fails. The resulting action is toast message.
+                                    Toast.makeText(this, R.string.up_fail, Toast.LENGTH_SHORT).show() // Adds listener if Signup fails. The resulting action is toast message.
                                 }
                         } else {
                             //Registration error
-                            Toast.makeText(this, getResources().getString(R.string.up_fail), Toast.LENGTH_LONG).show()
+                            Toast.makeText(this, R.string.up_fail, Toast.LENGTH_LONG).show()
                         }
                     }
             }
@@ -79,12 +79,12 @@ override fun onCreate(savedInstanceState: Bundle?) {
             signinButton.setOnClickListener {
                 auth.signInWithEmailAndPassword(email.text.toString(), password.text.toString()).addOnCompleteListener {// lets users sign in with email and password.
                     if (it.isSuccessful) {
-                        Toast.makeText(this, getResources().getString(R.string.in_success), Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, R.string.in_success, Toast.LENGTH_SHORT).show()
                         val intent = Intent(this, SwitchableActivity::class.java)  //starts switchable activity if signin is successful.
                         startActivity(intent)
                     } else {
                         //Registration error
-                        Toast.makeText(this, getResources().getString(R.string.in_fail), Toast.LENGTH_LONG).show() //toast message if signin fails.
+                        Toast.makeText(this, R.string.in_fail, Toast.LENGTH_LONG).show() //toast message if signin fails.
                     }
                 }
             }

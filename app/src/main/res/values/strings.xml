@@ -2,12 +2,17 @@
     <string name="app_name">Noteworthy</string>
     <string name="title_courses">Courses</string>
     <string name="title_notes">New Note</string>
+    <string name="saved">Note Saved</string>
     <string name="title_camera">New Photo</string>
+    <string name="success">Success</string>
     <string name="up_success">Sign-up successful!</string>
     <string name="up_fail">Sign-up failed. Try a longer password!</string>
     <string name="in_success">Sign-in successful!</string>
     <string name="in_fail">Sign-in failed.</string>
     <string name="course_prompt">Choose a course</string>
+    <string name="notes_fail">Note retrieval failed</string>
+    <string name="failed">Add failed</string>
+    <string name="empty">Add some courses!</string>
     <string-array name="course_array">
         <item>CSE 142</item>
         <item>INFO 101</item>

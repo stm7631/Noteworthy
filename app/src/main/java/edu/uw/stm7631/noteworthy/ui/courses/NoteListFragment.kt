@@ -45,7 +45,7 @@ class NoteListFragment : Fragment() {
                 recyclerView.layoutManager = LinearLayoutManager(activity)
             }
             .addOnFailureListener {
-                Toast.makeText(root.context, "failed", Toast.LENGTH_SHORT).show()
+                Toast.makeText(root.context, R.string.notes_fail, Toast.LENGTH_SHORT).show()
             }
         recyclerView.adapter = NotesRecyclerViewAdapter(CourseContent.NOTES, getActivity() as Context)
         recyclerView.layoutManager = LinearLayoutManager(activity)

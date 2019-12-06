@@ -92,7 +92,7 @@ class SwitchableActivity : AppCompatActivity() {
                         course_recycle.adapter = RecyclerViewAdapter(CourseContent.MYCOURSES, this)
                         course_recycle.layoutManager = LinearLayoutManager(this)  //sets linear layout manager to recycler view.
                         if (CourseContent.MYCOURSES.isEmpty()) {
-                            Toast.makeText(this, "Add some courses!", Toast.LENGTH_LONG).show() // shows toast message to add courses.
+                            Toast.makeText(this, R.string.empty, Toast.LENGTH_LONG).show() // shows toast message to add courses.
                         }
                     }
                 }
