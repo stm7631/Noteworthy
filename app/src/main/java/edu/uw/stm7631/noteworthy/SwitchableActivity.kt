@@ -28,11 +28,11 @@ class SwitchableActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val navView: BottomNavigationView = findViewById(R.id.nav_view)
+        val navView: BottomNavigationView = findViewById(R.id.nav_view) //sets the bottom navigation view from xml file.
 
         val intent = getIntent()
-        if (intent.hasExtra("Photo note")) {
-            val sessionId = intent.getStringExtra("Photo note")
+        if (intent.hasExtra("Photo note")) {      //checks if extras are set or not.
+            val sessionId = intent.getStringExtra("Photo note") //checks if extra string is set or not.
             Toast.makeText(this, sessionId, Toast.LENGTH_LONG).show()
 //            var fragment = NotesFragment.newInstance(sessionId!!)
 //            supportFragmentManager.beginTransaction().run {
@@ -44,7 +44,7 @@ class SwitchableActivity : AppCompatActivity() {
 
         }
 
-        val navController = findNavController(R.id.nav_host_fragment)
+        val navController = findNavController(R.id.nav_host_fragment) //manages the navigation for navhost.
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
@@ -67,9 +67,9 @@ class SwitchableActivity : AppCompatActivity() {
                     cor.get().addOnSuccessListener {
                         CourseContent.MYCOURSES.add(CourseContent.CourseItem(it["code"].toString(), it["name"].toString(), it["date"].toString()))
                         course_recycle.adapter = RecyclerViewAdapter(CourseContent.MYCOURSES, this)
-                        course_recycle.layoutManager = LinearLayoutManager(this)
+                        course_recycle.layoutManager = LinearLayoutManager(this)  //sets linear layout manager to recycler view.
                         if (CourseContent.MYCOURSES.isEmpty()) {
-                            Toast.makeText(this, "Add some courses!", Toast.LENGTH_LONG).show()
+                            Toast.makeText(this, "Add some courses!", Toast.LENGTH_LONG).show() // shows toast message to add courses.
                         }
                     }
                 }
