@@ -56,7 +56,6 @@ android:orientation="vertical">
             android:layout_toEndOf="@id/course_image" />
 
         <ImageView
-            android:id="@+id/quick_note"
             android:layout_width="40dp"
             android:layout_height="100dp"
             android:layout_alignParentEnd="true"

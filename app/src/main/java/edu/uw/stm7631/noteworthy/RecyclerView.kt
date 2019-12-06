@@ -1,16 +1,13 @@
 package edu.uw.stm7631.noteworthy
 
 import android.content.Context
-import android.content.Intent.getIntent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
-import edu.uw.stm7631.noteworthy.ui.courses.CoursesFragment
 import edu.uw.stm7631.noteworthy.ui.courses.NoteListFragment
-import edu.uw.stm7631.noteworthy.ui.notes.NotesFragment
 import kotlinx.android.synthetic.main.course_card.view.*
 
 class RecyclerViewAdapter(private val values: List<CourseContent.CourseItem>, private val context: Context)
