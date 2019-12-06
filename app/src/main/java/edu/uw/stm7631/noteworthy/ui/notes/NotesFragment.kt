@@ -13,6 +13,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
+import edu.uw.stm7631.noteworthy.CourseContent.USER
 import edu.uw.stm7631.noteworthy.R
 import kotlinx.android.synthetic.main.fragment_courses.*
 import kotlinx.android.synthetic.main.fragment_notes.*
@@ -48,7 +49,8 @@ class NotesFragment : Fragment() {      //creates a Notes fragment
             db.collection("notes").add(hashMapOf(
                 "class" to db.document("/classes/" + note_course_name.selectedItem.toString().replace("\\s".toRegex(), "")),
                 "text" to text_content.text.toString(),
-                "title" to text_heading.text.toString()
+                "title" to text_heading.text.toString(),
+                "author" to USER
             ))
         }
 
